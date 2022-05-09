@@ -9,6 +9,8 @@ app.get('/', function (req, res) {
 
 app.listen(3000)
 
+app.use(express.static('static'));
+
 
  var users = [
    { 'user': 'barney', 'age': 36, 'active': true },
@@ -17,4 +19,7 @@ app.listen(3000)
 
  let activeUser = _.filter(users, { 'age': 36, 'active': true });
  console.log(activeUser);
+
+
+
 
