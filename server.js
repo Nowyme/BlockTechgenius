@@ -1,25 +1,44 @@
 
-const express = require('express')
-const app = express()
-var _ = require('lodash');
+const express = require('express');
+const req = require('express/lib/request');
+const res = require('express/lib/response');
 
-app.get('/', function (req, res) {
-  res.send('Hello World tes')
-})
-
-app.listen(3000)
-
+//express app
+const app = express();
+const port = 3000
 app.use(express.static('static'));
 
+//register view engine
+app.set('view engine', 'ejs');
 
- var users = [
-   { 'user': 'barney', 'age': 36, 'active': true },
-   { 'user': 'fred',   'age': 40, 'active': false }
- ];
 
- let activeUser = _.filter(users, { 'age': 36, 'active': true });
- console.log(activeUser);
 
+app.listen(port, () => {
+  console.log(`Server running on http://localhost:${port}`)
+})
+
+app.get('/', (req, res) => {
+  res.render('pages/index');
+});
+
+app.get('/head', (req, res) => {
+  res.render('partials/head');
+})
+
+
+// 404 page
+app.use((req, res) => {
+  res.status(404).render('404');
+});
+
+
+
+
+
+
+
+
+ 
 
 
 
