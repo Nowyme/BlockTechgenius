@@ -20,9 +20,11 @@
   "homepage": "https://github.com/Nowyme/BlockTechgenius#readme",
   "dependencies": {
     "camelcase": "^6.3.0",
+    "dotenv": "^16.0.1",
     "ejs": "^3.1.8",
     "express": "^4.18.0",
-    "lodash": "^4.17.21"
+    "lodash": "^4.17.21",
+    "mongodb": "^4.6.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"
