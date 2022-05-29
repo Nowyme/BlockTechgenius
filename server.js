@@ -1,54 +1,93 @@
-
 require('dotenv').config();
 
 const express = require('express');
-const game = require('./data/games');
+const gameImg = require('./data/games');
+
 
 const req = require('express/lib/request');
 const res = require('express/lib/response');
 
-//express app
+// express app
 const app = express();
 
 app.use(express.static('static'));
 
-//register view engine
+// register view engine
 app.set('view engine', 'ejs');
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
-app.listen(process.env.PORT, () => {
-  console.log(`Server running on http://localhost:${process.env.PORT}`)
-})
 
-app.get('/', (req, res) => {
-  res.render('pages/index', {game: game });
-});
-
-//mongoDB
+// mongoDB
+let db = null;
 const { MongoClient, ServerApiVersion } = require('mongodb');
-const uri = 'mongodb+srv://' + process.env.DB_USERNAME + ':' + process.env.DB_PASS + '@' + process.env.DB_HOST + '/' + process.env.DB_NAME + '?retryWrites=true&w=majority';
-const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
-client.connect(err => {
-  const collection = client.db("test").collection("devices");
-  // perform actions on the collection object
-  client.close();
+const { ObjectId } = require('mongodb');
+
+async function connectDB() {
+  const uri = 'mongodb+srv://' + process.env.DB_USERNAME + ':' + process.env.DB_PASS + '@' + process.env.DB_HOST + '/' + process.env.DB_NAME + '?retryWrites=true&w=majority';
+  const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
+
+  try {
+    await client.connect();
+    db = client.db(process.env.DB_NAME);
+  } catch (error) {
+    throw error;
+  }
+
+}
+
+// start webserver
+
+app.listen(process.env.PORT, () => {
+  console.log(`Server running on http://localhost:${process.env.PORT}`);
+
+  connectDB().then(console.log("connectie met mongodb"));
+  
 });
+
+
+ app.get('/', async (req, res) => {
+
+  const games = await db.collection("game_collection").find({}, {}).toArray();
+  
+  const title  = (games.length == 0) ? "No movies were found" : "Games";
+  res.render('pages/index', {title, games});
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+//  const gamesSchema = {
+//    name: String,
+//    genre: String,
+//  }
+//  const Game = mongoose.model('Game',  gamesSchema);
+
+//  app.get('/'), (req, res) => {
+//    Game.find({}, function(err, game_collection){
+//      res.render('pages/index',{
+//        gamesList: games
+//      })
+//    })
+
+
+
 
 // 404 page
 app.use((req, res) => {
   res.status(404).render('404');
 });
 
-
-
-
-
-
-
-
- 
 
 
 

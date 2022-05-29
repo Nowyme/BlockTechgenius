@@ -1,4 +1,4 @@
-const game = [
+const gameImg = [
     {
       id: 0,
       name: 'Fornite',
@@ -12,4 +12,4 @@ const game = [
     
   ];
   
-  module.exports = game;
+  module.exports = gameImg;

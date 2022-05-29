@@ -1,19 +1,19 @@
 {
   "name": "blocktechgenius",
   "version": "1.0.0",
-  "description": "",
+  "description": "Games matching application",
   "main": "index.js",
   "scripts": {
-    "live": "nodemon ./server.js",
+    "start": "nodemon ./server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Nowyme/BlockTechgenius.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": ["games"],
+  "author": "Nowy Meepho",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/Nowyme/BlockTechgenius/issues"
   },
@@ -24,9 +24,18 @@
     "ejs": "^3.1.8",
     "express": "^4.18.0",
     "lodash": "^4.17.21",
-    "mongodb": "^4.6.0"
+    "mongodb": "^4.6.0",
+    "mongoose": "^6.3.3"
   },
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.26.0",
+    "@typescript-eslint/parser": "^5.26.0",
+    "eslint": "^8.16.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-react": "^7.30.0",
+    "eslint-plugin-react-hooks": "^4.5.0",
     "nodemon": "^2.0.15"
   }
 }

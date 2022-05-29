@@ -3,11 +3,24 @@
   <%- include('../partials/head');%> 
  
 <body>
+ 
+
+<main>
+
+  <h1><%= title %></h1>
+  <% games.forEach(function(game){ %>
+    <section>
+        <h2><%= game.name %></h2>
+        <h3><%= game.platform %></h3>
+        <img src="<%= game.img %>" alt="Genshin impact" >
+        
+    </section>
+    <% }) %>
 
   <div class="container">
     <div class="card">
       <div class="box">
-        <img src="<%=game[0].image%>" alt="Genshin impact" >
+        <img src="" alt="Genshin impact" >
         
       </div>
     </div>
@@ -47,10 +60,12 @@
   </div>
 
 
+
+</main>
+
+
+  <!-- <script src="static/script.js"></script> -->
   
 
- 
-
-   
 </body>
 </html>
