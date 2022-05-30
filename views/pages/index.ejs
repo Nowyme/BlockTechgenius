@@ -7,64 +7,26 @@
 
 <main>
 
-  <h1><%= title %></h1>
+  
   <% games.forEach(function(game){ %>
     <section>
+        <img src="<%= game.img %>" alt="Genshin impact" >
         <h2><%= game.name %></h2>
         <h3><%= game.platform %></h3>
-        <img src="<%= game.img %>" alt="Genshin impact" >
+        <button>Add</button>
         
     </section>
     <% }) %>
 
-  <div class="container">
-    <div class="card">
-      <div class="box">
-        <img src="" alt="Genshin impact" >
-        
-      </div>
-    </div>
   
-    <div class="card">
-      <div class="box">
-        <img src="img/fortnite.jpeg" alt="fornite" >
-        
-      </div>
-    </div>
   
-    <div class="card">
-      <div class="box">
-        <img src="img/lostark.jpeg" alt="lostark" >
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="box">
-        <img src="img/league.png" alt="league" >
-      </div>
-    </div>
-
-
-    <div class="card">
-      <div class="box">
-        <img src="img/lostark.jpeg" alt="lostark" >
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="box">
-        <img src="img/league.png" alt="league" >
-      </div>
-    </div>
-
-  </div>
-
+    
 
 
 </main>
 
 
-  <!-- <script src="static/script.js"></script> -->
+  <script src="script.js"></script>
   
 
 </body>

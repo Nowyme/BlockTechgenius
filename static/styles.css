@@ -36,11 +36,27 @@ body .container .card {
 }
 
 
+main{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+main section{
+  width: 400px;
+  margin: 1em;
+  border-radius: 10px;
+  background-color: aliceblue;
+  overflow: hidden;
+}
+
+main section img{
+  width: 100%;
+}
 
 
 
-
-body .container .card .box {
+/* body .container .card .box {
   position: absolute;
   top: 20px;
   left: 20px;
@@ -62,7 +78,7 @@ body .container .card .box img{
   height: 210px;
   object-fit: cover; 
   margin: 0;
-}
+} */
 
 
 

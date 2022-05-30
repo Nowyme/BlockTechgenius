@@ -1,3 +1,6 @@
+/* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
+
 require('dotenv').config();
 
 const express = require('express');
@@ -32,6 +35,7 @@ async function connectDB() {
     await client.connect();
     db = client.db(process.env.DB_NAME);
   } catch (error) {
+    console.log(error);
     throw error;
   }
 
@@ -51,7 +55,7 @@ app.listen(process.env.PORT, () => {
 
   const games = await db.collection("game_collection").find({}, {}).toArray();
   
-  const title  = (games.length == 0) ? "No movies were found" : "Games";
+  const title  = (games.length == 0) ? "No games where found" : "Games";
   res.render('pages/index', {title, games});
 });
 
