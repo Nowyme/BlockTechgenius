@@ -1,35 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-  <%- include('../partials/head');%> 
- 
+<%- include('../partials/head');%>
+
 <body>
- 
+  <header>
+    <%- include('../partials/nav');%>
+  </header>
 
-<main>
+  <main>
 
-  
-  <% games.forEach(game =>{ %>
+    <% games.forEach(game =>{ %>
     <section>
-        <img src="<%= game.img %>" alt="<%= game.name %>" >
-        <h2><%= game.name %></h2>
-        <h3><%= game.platform %></h3>
-        <form action="/" method="post">
-          <button name="like" type="submit" value="<%= game._id %>" class="btn-like">Like</button>
+      <img src="<%= game.img %>" alt="<%= game.name %>">
+      <h2><%= game.name %></h2>
+      <h3><%= game.platform %></h3>
+
+      <form action="/" method="post">
+        <button name="like" type="submit" value="<%= game._id %>" class="btn-like">Like</button>
       </form>
-        
+
     </section>
     <% }) %>
 
-  
-  
-    
 
-
-</main>
+  </main>
 
 
   <script src="script.js"></script>
-  
 
 </body>
+
 </html>
