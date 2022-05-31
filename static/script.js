@@ -35,9 +35,9 @@ const options = {
 		'Client-ID': 'vbwxbmene4l1wgm17cfr5c9b60xd9r',
 		'Authorization': 'Bearer samjeh51ql0q240la094i1pwmakt11',
 		'Content-Type': 'application/json'
-	}
-	// body: 
-    // "fields: *; where id = 110592;"
+	},
+	body: 
+   
 };
 
 fetch('https://api.igdb.com/v4/covers/', options)
@@ -46,4 +46,4 @@ fetch('https://api.igdb.com/v4/covers/', options)
 	.catch(err => console.error(err));
     
 
-    console.log('etetetetet')
+    console.log('etetetetet');
