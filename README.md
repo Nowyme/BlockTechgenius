@@ -69,6 +69,7 @@ DB_NAME=
 DB_USERNAME=
 DB_PASS=
 ```
+Voor meer info over database lees dan mijn [Wiki](https://github.com/Nowyme/BlockTechgenius/wiki/Database-Structure).
 
 <a name="Contact"/>
 
