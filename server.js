@@ -5,7 +5,7 @@ require("dotenv").config();
 const express = require("express");
 const req = require("express/lib/request");
 const res = require("express/lib/response");
-const port = process.env.PORT || 3000;
+
 
 // express app
 const app = express();
