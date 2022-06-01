@@ -75,6 +75,7 @@ DB_PASS=
 ## :raising_hand: Contact
 
 Naam: Nowy Meepho
+
 E-mail: nowy.meepho@hva.nl
 
 <a name="License"/>
