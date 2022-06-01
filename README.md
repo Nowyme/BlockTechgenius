@@ -37,7 +37,7 @@ Game2Match is een matching applicatie om gamers te matchen op basis van hun game
 
 Als je mijn project wilt clonen, volg dan de stappen hieronder:
 
-Voordat je de stappen volgt instaleer [nodejs](https://nodejs.org/en/download/) op je computer.
+Voordat je de stappen volgt installeer [nodejs](https://nodejs.org/en/download/) op je computer.
 
 
 1. Clone repository in je CLI
