@@ -48,7 +48,7 @@ git clone https://github.com/Nowyme/BlockTechgenius.git
 ```
 npm i -g npm
 ```
-2. Installeer nodemon als dev
+3. Installeer nodemon als dev
 ```
 npm i --save-dev nodemon
 ```
