@@ -18,16 +18,69 @@
 * :lock: [License](#License)
 
 
-
+<a name="Project"/>
 
 ## :building_construction: Over dit project 
+
+Dit project is bedoeld om een matching applicatie te bouwen dat werkt in de frontend en backend. Wij werken voor dit project met Node.js, 
+HTML, CSS, JS en MongoDB. Dit project betreft niet alle functionaliteiten, maar een deel van de applicatie.
 
 <a name="Concept"/>
 
 ## :+1: Concept
 
+Game2Match is een matching applicatie om gamers te matchen op basis van hun game library. Zij kunnen games toevoegen aan hun virtuele library en zo worden zij gekoppeld aan een andere gebruiker om samen de game te spelen. De applicatie functionaliteit is nu alleen toevoegen aan je library. Andere functionaliteiten komen nog.
+
+<a name="Installeren"/>
+
 ## :gear: Installeren
+
+Als je mijn project wilt clonen, volg dan de stappen hieronder:
+
+Voordat je de stappen volgt instaleer [nodejs](https://nodejs.org/en/download/) op je computer.
+
+
+1. Clone repository in je CLI
+```
+git clone https://github.com/Nowyme/BlockTechgenius.git
+```
+2. Installeer npm 
+```
+npm i -g npm
+```
+2. Installeer nodemon als dev
+```
+npm i --save-dev nodemon
+```
+
+### Database connectie
+
+Om connectie te maken met de database moet je een [dotenv](https://www.npmjs.com/package/dotenv) file zelf toevoegen.
+1. Installeer dotenv
+```
+npm i dotenv --save
+```
+
+2. Maak in je .env file je enviroment variable aan van je database zoals hieronder:
+```
+PORT=
+DB_HOST=
+DB_NAME=
+DB_USERNAME=
+DB_PASS=
+```
+
+<a name="Contact"/>
 
 ## :raising_hand: Contact
 
+Naam: Nowy Meepho
+E-mail: nowy.meepho@hva.nl
+
+<a name="License"/>
+
 ## :lock: License
+
+© 2022 Nowy Meepho
+
+Licensed under the MIT license.
