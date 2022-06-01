@@ -83,4 +83,4 @@ E-mail: nowy.meepho@hva.nl
 
 © 2022 Nowy Meepho
 
-Licensed under the MIT license.
+Licensed under the [MIT](https://github.com/Nowyme/BlockTechgenius/blob/main/LICENSE) license.
