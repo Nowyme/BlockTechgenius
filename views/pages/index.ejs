@@ -3,6 +3,7 @@
 <%- include('../partials/head');%>
 
 <body>
+  
   <header>
     <%- include('../partials/nav');%>
   </header>
@@ -10,7 +11,7 @@
   <main>
 
     <% games.forEach(game =>{ %>
-    <section>
+    <section class="card-item">
       <img src="<%= game.img %>" alt="<%= game.name %>">
       <h2><%= game.name %></h2>
       <h3><%= game.platform %></h3>

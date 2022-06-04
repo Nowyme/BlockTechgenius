@@ -5,31 +5,51 @@
   font-family: "Poppins", sans-serif;
 }
 
-body {
-  min-height: 100vh;
-  background: #232427;
+/*********************/
+/* CUSTOM PROPERTIES */
+/*********************/
+:root {
+  --background-color: #232427;
+  --navbar-color: #333;
+  --white-color: #f2f2f2;
+  --hover-color: #7c71df;
+  --darkblue: rgba(9, 9, 121, 1);
+  --lightblue: rgba(0, 121, 255, 1);
 }
 
+
+
+body {
+  min-height: 100vh;
+  background: var(--background-color);
+}
+
+/*********************/
+/* navbar */
+/*********************/
+
 .nav {
-  background-color: #333;
+  background-color: var(--navbar-color);
   padding: 1.5em;
   display: flex;
   margin-right: auto;
   justify-content: flex-end;
 }
-.nav a:first-of-type {
-  margin-right: auto;
-}
 
 .nav a {
-  color: #f2f2f2;
+  color: var(--white-color);
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
   font-size: 17px;
 }
+
+.nav a:first-of-type {
+  margin-right: auto;
+}
+
 .nav a:hover {
-  color: #7c71df;
+  color: var(--hover-color);
 }
 
 main {
@@ -40,18 +60,23 @@ main {
   flex-wrap: wrap;
 }
 
+/*********************/
+/* cards */
+/*********************/
+
 main section {
   width: 300px;
   margin: 1em;
   border-radius: 10px;
-  background-color: aliceblue;
+  background-color: var(--white-color);
   overflow: hidden;
-  transition: transform 0.4s;
+
   text-align: center;
 }
 
 main section:hover {
-  transform: scale(1.1);
+  transform: scale(1.07);
+  transition: 0.4s;
 }
 
 main section img {
@@ -66,14 +91,18 @@ main section h2 {
 
 main section h3 {
   margin: 0.5em;
-
   font-weight: 400;
 }
+
+/*********************/
+/* Gradient buttons */
+/*********************/
+
 main section button {
   background: linear-gradient(
     90deg,
-    rgba(9, 9, 121, 1) 0%,
-    rgba(0, 121, 255, 1) 100%
+    var(--darkblue) 0%,
+    var(--lightblue) 100%
   );
   border: none;
   color: white;
@@ -88,11 +117,29 @@ main section button {
 main section button:hover {
   background: linear-gradient(
     90deg,
-    rgba(0, 121, 255, 1) 0%,
-    rgba(9, 9, 121, 1) 0%
+    var(--lightblue) 0%,
+    var(--darkblue) 0%
   );
 }
 
 main section button:hover {
   cursor: pointer;
+}
+
+/*********************/
+/* Intersection Observer classes */
+/*********************/
+
+.card-item {
+  transform: translateY(2em);
+  transition: 0.4s ease-in;
+}
+
+.hide {
+  opacity: 0;
+}
+
+.slide-top {
+  opacity: 1;
+  transform: translateY(0);
 }
