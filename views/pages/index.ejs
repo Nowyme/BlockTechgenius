@@ -3,28 +3,21 @@
 <%- include('../partials/head');%>
 
 <body>
-  
+
   <header>
     <%- include('../partials/nav');%>
   </header>
+
   <div class="carousel">
+      <ul class="slide-wrapper">
 
-    
-    <ul class="slide-wrapper">
-      
-    </ul>
-    
-      
+      </ul>
     </div>
-    
   </div>
-  
-  
+
+
+
   <main>
-   
-
-  
-
 
     <% games.forEach(game =>{ %>
     <section class="card-item">
@@ -39,12 +32,20 @@
     </section>
     <% }) %>
 
-
   </main>
 
   <script src="script.js"></script>
 
-<footer></footer>
+  
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+

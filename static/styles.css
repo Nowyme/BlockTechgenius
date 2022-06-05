@@ -161,7 +161,7 @@ main section button:hover {
   height: 100%;
 }
 
-@-webkit-keyframes slide {
+@keyframes slide {
   0% {
     margin-left: 0px;
   }
@@ -224,5 +224,29 @@ main section button:hover {
   }
   100% {
     margin-left: -7334;
+  }
+}
+
+/*********************/
+/* Accessiblity reduce motion*/
+/*********************/
+
+@media (prefers-reduced-motion) {
+  .slide-wrapper {
+    animation: none;
+  }
+
+  .card-item {
+    transform: translateY(0);
+    transition: 0.4s ease-in;
+  }
+  
+  .hide {
+    opacity: 1;
+  }
+  
+  .slide-top {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
