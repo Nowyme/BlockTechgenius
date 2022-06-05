@@ -6,9 +6,6 @@ const express = require("express");
 const req = require("express/lib/request");
 const res = require("express/lib/response");
 
-// IGDB API
-const igdb = require('igdb-api-node').default;
-const client = igdb('vbwxbmene4l1wgm17cfr5c9b60xd9r', 'Bearer samjeh51ql0q240la094i1pwmakt11');
 
 // express app
 const app = express();
