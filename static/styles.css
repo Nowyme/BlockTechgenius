@@ -17,8 +17,6 @@
   --lightblue: rgba(0, 121, 255, 1);
 }
 
-
-
 body {
   min-height: 100vh;
   background: var(--background-color);
@@ -99,11 +97,7 @@ main section h3 {
 /*********************/
 
 main section button {
-  background: linear-gradient(
-    90deg,
-    var(--darkblue) 0%,
-    var(--lightblue) 100%
-  );
+  background: linear-gradient(90deg, var(--darkblue) 0%, var(--lightblue) 100%);
   border: none;
   color: white;
   padding: 15px 80px;
@@ -115,11 +109,7 @@ main section button {
 }
 
 main section button:hover {
-  background: linear-gradient(
-    90deg,
-    var(--lightblue) 0%,
-    var(--darkblue) 0%
-  );
+  background: linear-gradient(90deg, var(--lightblue) 0%, var(--darkblue) 0%);
 }
 
 main section button:hover {
@@ -143,3 +133,97 @@ main section button:hover {
   opacity: 1;
   transform: translateY(0);
 }
+
+/*********************/
+/* Carousel slideshow*/
+/*********************/
+
+.carousel {
+  overflow: hidden;
+  height: 540px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.slide-wrapper {
+  width: 10000px;
+  height: 600px;
+  animation: slide 60s ease infinite ;
+}
+.slide {
+  float: left;
+  width: 728px;
+
+}
+
+.slide-img {
+  width: 100%;
+  object-fit: cover;
+  height: 100%;
+}
+
+
+
+@-webkit-keyframes slide {
+  5% {
+    margin-left: 0px;
+  }
+  10% {
+    margin-left: -728px;
+  }
+  15% {
+    margin-left: -728px;
+  }
+  20% {
+    margin-left: -1456px;
+  }
+  25% {
+    margin-left: -1456px;
+  }
+  30% {
+    margin-left: -2184px;
+  }
+  35% {
+    margin-left: -2184px;
+  }
+  40% {
+    margin-left: -2912px;
+  }
+  45% {
+    margin-left: -2912px;
+  }
+  50% {
+    margin-left: -3640px;
+  }
+  55% {
+    margin-left: -3640px;
+  }
+  60% {
+    margin-left: -4368px;
+  }
+  65% {
+    margin-left: -4368px;
+  }
+  70% {
+    margin-left: -5096px;
+  }
+  75% {
+    margin-left: -5096px;
+  }
+  80% {
+    margin-left: -5824px;
+  }
+  85% {
+    margin-left: -5824px;
+  }
+  90% {
+    margin-left: -6606px;
+  }
+  95% {
+    margin-left: -6606px;
+  }
+  100% {
+    margin-left: -7334;
+  }
+}
+

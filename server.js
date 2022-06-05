@@ -5,8 +5,10 @@ require("dotenv").config();
 const express = require("express");
 const req = require("express/lib/request");
 const res = require("express/lib/response");
-const cors = require("cors");
 
+// IGDB API
+const igdb = require('igdb-api-node').default;
+const client = igdb('vbwxbmene4l1wgm17cfr5c9b60xd9r', 'Bearer samjeh51ql0q240la094i1pwmakt11');
 
 // express app
 const app = express();
@@ -141,6 +143,9 @@ app.get("pages/mygames", async (req, res) => {
 
   res.render("pages/mygames", { user, games, userGames });
 });
+
+
+
 
 // 404 page
 app.use((req, res) => {
