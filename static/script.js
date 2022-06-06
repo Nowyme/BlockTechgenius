@@ -2,7 +2,7 @@
 const option = {
   method: "GET",
   headers: {
-    "Client-ID": 'vbwxbmene4l1wgm17cfr5c9b60xd9r',
+    "Client-ID": "vbwxbmene4l1wgm17cfr5c9b60xd9r",
     Authorization: "Bearer samjeh51ql0q240la094i1pwmakt11",
     "Content-Type": "application/json",
   },
@@ -26,6 +26,26 @@ fetch("https://api.twitch.tv/helix/games/top", option)
   })
   .catch((err) => console.error(err));
 
+
+// Fallback default img slide & slide animation
+const imgAlt = document.querySelectorAll(".slide-hidden");
+const slideAnimation = document.querySelector(".slide-wrapper");
+
+imgAlt.forEach((slide) => {
+  slide.remove();
+});
+
+
+// Reduce motion slide
+const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+if (!mediaQuery || mediaQuery.matches) {
+  slideAnimation.style.animation = "none";
+}else{
+  slideAnimation.style.animation = "slide 60s ease infinite";
+}
+
+
 // Intersection observer
 const cards = document.querySelectorAll(".card-item");
 
@@ -45,4 +65,3 @@ cards.forEach((card) => {
   observer.observe(card);
   card.classList.add("hide");
 });
-

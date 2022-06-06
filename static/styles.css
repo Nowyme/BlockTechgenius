@@ -148,7 +148,7 @@ main section button:hover {
 .slide-wrapper {
   width: 10000px;
   height: 600px;
-  animation: slide 60s ease infinite;
+  
 }
 .slide {
   float: left;
@@ -250,3 +250,6 @@ main section button:hover {
     transform: translateY(0);
   }
 }
+
+
+
