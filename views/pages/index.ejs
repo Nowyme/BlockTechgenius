@@ -21,7 +21,7 @@
 
     <main>
 
-      <% games.forEach(game=>{ %>
+      <% gamesMatch.forEach(game=>{ %>
         <section class="card-item">
           <img src="<%= game.img %>" alt="<%= game.name %>">
           <h2>
@@ -32,8 +32,16 @@
           </h3>
 
           <form action="/" method="post">
-            <button name="like" type="submit" value="<%= game._id %>" class="btn-like">Like</button>
+            <button name="like" type="button" value="<%= game._id %>" class="btn-like" onClick="show()">Like</button>
           </form>
+          <form action="/unlike" method="post">
+            <button name="unlike" type="submit" value="<%= game._id %>" class="btn-unlike-index">unlike</button>
+          </form>
+
+          <% function show() { %>
+            <% document.querySelector('.btn-unlike-index').classList.add("visible"); %>
+              <% }%>
+
 
         </section>
         <% }) %>

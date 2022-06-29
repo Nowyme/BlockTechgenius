@@ -249,3 +249,28 @@ main section button:hover {
     transform: translateY(0);
   }
 }
+
+.btn-like {
+  visibility: visible;
+}
+
+.btn-unlike-index {
+  background: linear-gradient(
+    133deg,
+    rgba(230, 125, 15, 1) 0%,
+    rgba(100, 41, 190, 1) 100%
+  );
+  visibility: hidden;
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+  color: white;
+}
+
+.btn-unlike-index:hover {
+  background: rgba(230, 125, 15);
+}
+
+.visible {
+  visibility: visible;
+}

@@ -64,8 +64,10 @@ cards.forEach((card) => {
 });
 
 //Like unlike button
-const btnLike = document.querySelector('.btn-like');
-
-btnLike.forEach((red) => {
-  red.style.color = 'red';
-});
+const btnUnlike = document.querySelector('.btn-unlike-index');
+const btnlike = document.querySelector('.btn-like');
+function show() {
+  btnlike.forEach(() => {
+    btnUnlike.classList.add('visible');
+  });
+}

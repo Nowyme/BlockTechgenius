@@ -59,27 +59,19 @@ app.listen(process.env.PORT, () => {
 app.get('/', async (req, res) => {
   try {
     const games = await db.collection('game_collection').find({}, {}).toArray();
-    const user = await db.collection('user').find({}, {}).toArray();
+    const user = await db.collection('user').findOne({
+      _id: ObjectId('62967307a4ff59e9678d2943'),
+    });
 
-    res.render('pages/index', { games, user });
+    const gamesMatch = games.filter(
+      (game) => !user.game_id.includes(String(game._id))
+    );
+
+    res.render('pages/index', { gamesMatch });
   } catch (error) {
     console.log(error);
   }
 });
-
-// mygames
-// app.get('/mygames', async (req, res) => {
-//   try {
-//     const likegames = await db
-//       .collection('game_collection')
-//       .find({ like: true }, {})
-//       .toArray();
-//     const user = await db.collection('user').find({}, {}).toArray();
-//     res.render('pages/mygames', { likegames, user });
-//   } catch (error) {
-//     console.log(error);
-//   }
-// });
 
 // like
 app.post('/', async (req, res) => {
