@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/head');%>
+
+    <body>
+
+
+        <header>
+            <%- include('../partials/nav');%>
+        </header>
+
+
+        <main>
+
+
+
+            <form action="/addgame" method="POST" enctype="multipart/form-data" class="formAdd">
+                <div class="form-group">
+
+                    <label for="Name" class="text-white">Title</label>
+                    <input type="text" class="form-control" placeholder="Game title" name="name" required>
+                </div>
+
+                <div class="form-group">
+
+                    <label for="author" class="text-white">Platform</label>
+                    <input type="text" class="form-control" placeholder="Platform" name="platform" required>
+                </div>
+
+
+
+                <div class="form-group">
+                    <label for="image" class="text-white">Upload image</label>
+                    <input type="file" name="image" id="image" class="form-control-file text-white">
+                </div>
+
+                <div class="form-group">
+
+                    <button type="submit" class="btn-primary">Add</button>
+                </div>
+
+            </form>
+
+        </main>
+
+
+        <script src="script.js"></script>
+
+
+    </body>
+
+</html>

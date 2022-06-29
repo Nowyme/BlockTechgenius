@@ -6,6 +6,7 @@ const express = require('express');
 const { use } = require('express/lib/application');
 const req = require('express/lib/request');
 const res = require('express/lib/response');
+const multer = require('multer');
 
 // express app
 const app = express();
@@ -47,6 +48,10 @@ async function connectDB() {
     throw error;
   }
 }
+
+app.get('/addgame', (req, res) => {
+  res.render('pages/addgame');
+});
 
 // start webserver
 app.listen(process.env.PORT, () => {
@@ -105,6 +110,34 @@ app.get('/mygames', async (req, res) => {
   );
 
   res.render('pages/mygames', { userGames });
+});
+
+// add game & multer config
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, './static/img'); // store here
+  },
+  filename: function (req, file, cb) {
+    cb(null, Date.now() + file.originalname);
+  },
+});
+
+const upload = multer({
+  storage: storage,
+});
+
+// add game data req & sent to database
+app.post('/addgame', upload.single('image'), async (req, res) => {
+  console.log(req.file);
+
+  let gameInfo = {
+    name: req.body.name,
+    platform: req.body.platform,
+    img: req.file.filename,
+  };
+  await db.collection('game_collection').insertOne(gameInfo);
+  res.redirect('/');
+  console.log(gameInfo);
 });
 
 // 404 page
