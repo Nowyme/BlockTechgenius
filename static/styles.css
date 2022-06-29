@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 /*********************/
@@ -148,7 +148,6 @@ main section button:hover {
 .slide-wrapper {
   width: 10000px;
   height: 600px;
-  
 }
 .slide {
   float: left;
@@ -240,16 +239,13 @@ main section button:hover {
     transform: translateY(0);
     transition: 0.4s ease-in;
   }
-  
+
   .hide {
     opacity: 1;
   }
-  
+
   .slide-top {
     opacity: 1;
     transform: translateY(0);
   }
 }
-
-
-

@@ -2,43 +2,43 @@
 <html lang="en">
 <%- include('../partials/head');%>
 
-<body>
-
-    <header>
-        <%- include('../partials/nav');%>
-    </header>
+    <body>
 
 
-    <main>
-
-        <% likegames.forEach(game =>{ %>
-        <% if (game.like == true){%>
-        <section>
-            <img src="<%= game.img %>" alt="<%= game.name %>">
-            <h2><%= game.name %></h2>
-            <h3><%= game.platform %></h3>
-            <form action="/unlike" method="post">
-                <button name="unlike" type="submit" value="<%= game._id %>" class="btn-unlike">unlike</button>
-            </form>
-
-        </section>
-        <% }%>
-
-        <% }) %>
+        <header>
+            <%- include('../partials/nav');%>
+        </header>
 
 
+        <main>
 
-    </main>
+            <% userGames.forEach(game=>{ %>
+
+                <section>
+                    <img src="<%= game.img %>" alt="<%= game.name %>">
+                    <h2>
+                        <%= game.name %>
+                    </h2>
+                    <h3>
+                        <%= game.platform %>
+                    </h3>
+                    <form action="/unlike" method="post">
+                        <button name="unlike" type="submit" value="<%= game._id %>" class="btn-unlike">unlike</button>
+                    </form>
+
+                </section>
 
 
-    <script src="script.js"></script>
+                <% }) %>
 
 
-</body>
+
+        </main>
+
+
+        <script src="script.js"></script>
+
+
+    </body>
 
 </html>
-
-
-
-
-
