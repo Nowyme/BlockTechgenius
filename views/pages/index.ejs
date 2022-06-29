@@ -2,52 +2,47 @@
 <html lang="en">
 <%- include('../partials/head');%>
 
-<body>
+  <body>
 
-  <header>
-    <%- include('../partials/nav');%>
-  </header>
+    <header>
+      <%- include('../partials/nav');%>
+    </header>
 
-  <div class="carousel">
+    <div class="carousel">
       <ul class="slide-wrapper">
         <li class="slide slide-hidden"><img src="/img/cyberpunk.jpeg" alt="default img" class="slide-img"></li>
         <li class="slide slide-hidden"><img src="/img/destiny.jpeg" alt="default img" class="slide-img"></li>
         <li class="slide slide-hidden"><img src="/img/fifa.jpeg" alt="default img" class="slide-img"></li>
       </ul>
     </div>
-  </div>
+    </div>
 
 
 
-  <main>
+    <main>
 
-    <% games.forEach(game =>{ %>
-    <section class="card-item">
-      <img src="<%= game.img %>" alt="<%= game.name %>">
-      <h2><%= game.name %></h2>
-      <h3><%= game.platform %></h3>
+      <% games.forEach(game=>{ %>
+        <section class="card-item">
+          <img src="<%= game.img %>" alt="<%= game.name %>">
+          <h2>
+            <%= game.name %>
+          </h2>
+          <h3>
+            <%= game.platform %>
+          </h3>
 
-      <form action="/" method="post">
-        <button name="like" type="submit" value="<%= game._id %>" class="btn-like">Like</button>
-      </form>
+          <form action="/" method="post">
+            <button name="like" type="submit" value="<%= game._id %>" class="btn-like">Like</button>
+          </form>
 
-    </section>
-    <% }) %>
+        </section>
+        <% }) %>
 
-  </main>
+    </main>
 
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 
-  
-</body>
+
+  </body>
 
 </html>
-
-
-
-
-
-
-
-
-
