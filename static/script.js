@@ -62,10 +62,3 @@ cards.forEach((card) => {
   observer.observe(card);
   card.classList.add('hide');
 });
-
-//Like unlike button
-const btnLike = document.querySelector('.btn-like');
-
-btnLike.forEach((red) => {
-  red.style.color = 'red';
-});

@@ -57,63 +57,33 @@ app.listen(process.env.PORT, () => {
 
 // index
 app.get('/', async (req, res) => {
-  try {
-    const games = await db.collection('game_collection').find({}, {}).toArray();
-    const user = await db.collection('user').find({}, {}).toArray();
+  const games = await db.collection('game_collection').find({}, {}).toArray();
+  const user = await db.collection('user').findOne({
+    _id: ObjectId('62967307a4ff59e9678d2943'),
+  });
 
-    res.render('pages/index', { games, user });
-  } catch (error) {
-    console.log(error);
-  }
+  const gamesMatch = games.filter(
+    (game) => !user.game_id.includes(String(game._id))
+  );
+
+  res.render('pages/index', { gamesMatch });
 });
-
-// mygames
-// app.get('/mygames', async (req, res) => {
-//   try {
-//     const likegames = await db
-//       .collection('game_collection')
-//       .find({ like: true }, {})
-//       .toArray();
-//     const user = await db.collection('user').find({}, {}).toArray();
-//     res.render('pages/mygames', { likegames, user });
-//   } catch (error) {
-//     console.log(error);
-//   }
-// });
 
 // like
 app.post('/', async (req, res) => {
-  try {
-    const games = db.collection('game_collection');
+  const users = await db.collection('user');
 
-    const users = await db.collection('user');
+  await users.updateOne(
+    { _id: ObjectId('62967307a4ff59e9678d2943') },
+    { $addToSet: { game_id: req.body.like } }
+  );
 
-    await games.updateOne(
-      { _id: ObjectId(req.body.like) },
-      { $set: { like: true } }
-    );
-
-    await users.updateOne(
-      { _id: ObjectId('62967307a4ff59e9678d2943') },
-      { $addToSet: { game_id: req.body.like } }
-    );
-
-    res.redirect('/');
-  } catch (err) {
-    console.log(err);
-  }
+  res.redirect('/');
 });
 
 // unlike
 app.post('/unlike', async (req, res) => {
-  const games = db.collection('game_collection');
-
   const users = await db.collection('user');
-
-  await games.updateOne(
-    { _id: ObjectId(req.body.unlike) },
-    { $set: { like: false } }
-  );
 
   await users.updateOne(
     { _id: ObjectId('62967307a4ff59e9678d2943') },
@@ -123,7 +93,6 @@ app.post('/unlike', async (req, res) => {
   res.redirect('/mygames');
 });
 
-//work in progress
 // mygames display
 app.get('/mygames', async (req, res) => {
   const user = await db.collection('user').findOne({
@@ -134,10 +103,8 @@ app.get('/mygames', async (req, res) => {
   const userGames = games.filter((game) =>
     user.game_id.includes(String(game._id))
   );
-  // console.log(userGames);
-  console.log(user);
 
-  res.render('pages/mygames', { userGames, user });
+  res.render('pages/mygames', { userGames });
 });
 
 // 404 page
